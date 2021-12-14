@@ -5,6 +5,8 @@
 
 main {
   height: 50vh;
+
+  margin: 30px;
   padding: 20px;
   padding-bottom: 50px;
   padding-top: 50px;
@@ -16,6 +18,7 @@ main {
 }
 
 h1 {
+  text-align: center;
   color: rgb(100, 100, 100);
   margin: 20px;
 }
