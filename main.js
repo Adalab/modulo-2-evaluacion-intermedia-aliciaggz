@@ -23,7 +23,7 @@ function pcPlay(){
         console.log('Ordenador: Piedra')
     }else if (randomNumber <= 6){
         console.log('Ordenador: Papel')
-    } else{
+    } else if (randomNumber <= 10){
         console.log('Ordenador: Tijera')
     }
 
@@ -99,8 +99,19 @@ function game (){
     }else if(userOption === 'tijera' && randomNumber <= 6){
         response.innerHTML = '¡Has Ganado!';
         counterPlayer(); 
-    }  
+
+    } else if(userOption === 'piedra' && randomNumber <= 10){
+        response.innerHTML = '¡Has Ganado!';
+        counterPlayer(); 
+    }else if(userOption === 'papel' && randomNumber <= 10){
+        response.innerHTML = '¡Has Perdido!'
+        counterPc ();
+    }else if(userOption === 'tijera' && randomNumber <= 10){
+        response.innerHTML = 'Empate.'; 
+    }
+
 }
+
 
 button.addEventListener ('click', game);
 
@@ -109,11 +120,6 @@ button.addEventListener ('click', game);
 
 
 
-
-
-
-
-// game();
 
 // function handleClickUpdate(event){
 //     event.preventDefault();
