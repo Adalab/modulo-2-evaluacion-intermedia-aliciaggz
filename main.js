@@ -34,8 +34,6 @@ function pcPlay(randomNumber){
 
 
 
-
-
 //Eleccion del jugador
 
 function playerPlay(){
@@ -65,20 +63,21 @@ let tries = 0;
 function counterPlayer (){
     tries += 1;
     player.innerHTML = ` Jugador: ${tries} `;
-
-    
-   
+     
 }
 
 
 let triesPc = 0;
 
 function counterPc (){
+    
     triesPc += 1;
     pc.innerHTML = ` Computadora: ${triesPc} `;
-
+    
    
 }
+
+
 
 
 
@@ -137,6 +136,16 @@ function game (){
 
 //funcion BONUS del boton
 
+function resetCounters(){
+    if (triesPc >= 3){
+        button2.classList.remove('hidden');
+    }
+    else if (tries >= 3){
+        button2.classList.remove('hidden');
+    }
+}
+
+
 
 function buttonRestart (){
  
@@ -145,6 +154,8 @@ function buttonRestart (){
     player.innerHTML = ` Jugador: 0`;
     
 }
+
+
 
 button2.addEventListener('click', buttonRestart)
 
@@ -157,8 +168,7 @@ function handleClickUpdate(event){
     getRandomNumber();
     playerPlay();
     game();
-    buttonBonus();
-    
+    resetCounters();
     
  }
 
