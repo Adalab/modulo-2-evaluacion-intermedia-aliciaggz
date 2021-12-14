@@ -22,8 +22,6 @@ const randomNumber = getRandomNumber(10);
 
 function pcPlay(randomNumber){
     
-    console.log(randomNumber);
-
     if(randomNumber <= 3){
         console.log('Ordenador: Piedra')
     }else if (randomNumber <= 6){
@@ -67,6 +65,8 @@ let tries = 0;
 function counterPlayer (){
     tries += 1;
     player.innerHTML = ` Jugador: ${tries} `;
+
+    
    
 }
 
@@ -75,17 +75,23 @@ let triesPc = 0;
 
 function counterPc (){
     triesPc += 1;
-    pc.innerHTML = ` Computadora: ${tries} `;
+    pc.innerHTML = ` Computadora: ${triesPc} `;
+
+   
 }
 
 
 
 function game (){
-    
-    const userOption = select.value;
     const randomNumber = getRandomNumber(10);
 
+    console.log(randomNumber);
+
     pcPlay(randomNumber);
+
+    const userOption = select.value;
+  
+  
 
     if ( userOption === 'piedra' && randomNumber <= 3){         response.innerHTML = 'Empate.';    
 
@@ -131,19 +137,13 @@ function game (){
 
 //funcion BONUS del boton
 
-function buttonBonus(){
-    
-     counterPlayer();
-    counterPc();
- 
-    button2.classList.remove('hidden');
-}
 
 function buttonRestart (){
+ 
     button2.classList.add('hidden');
     pc.innerHTML = ` Computadora: 0 `
     player.innerHTML = ` Jugador: 0`;
-   
+    
 }
 
 button2.addEventListener('click', buttonRestart)
@@ -153,11 +153,12 @@ button2.addEventListener('click', buttonRestart)
 
 function handleClickUpdate(event){
   event.preventDefault();
+    pcPlay();
+    getRandomNumber();
     playerPlay();
     game();
     buttonBonus();
-    pcPlay();
-    getRandomNumber();
+    
     
  }
 
