@@ -150,8 +150,8 @@ function resetCounters(){
 function buttonRestart (){
  
     button2.classList.add('hidden');
-    pc.innerHTML = ` Computadora: 0 `
-    player.innerHTML = ` Jugador: 0`;
+    pc.innerHTML = ` Computadora: ${triesPc=0} `
+    player.innerHTML = ` Jugador: ${tries = 0}`;
     
 }
 
