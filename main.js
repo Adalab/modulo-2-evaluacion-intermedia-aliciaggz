@@ -10,6 +10,7 @@ function getRandomNumber(max) {
 };
 
 
+
 function pcPlay(){
     const randomNumber = getRandomNumber(10);
     console.log(randomNumber);
@@ -24,4 +25,37 @@ function pcPlay(){
 
 }
 
-button.addEventListener('click', pcPlay)
+pcPlay();
+
+
+function playerPlay(){
+    const userOption = select.value;
+   
+    if(userOption === 'piedra'){
+        console.log('Player: Piedra')
+    }else if(userOption === 'papel'){
+        console.log('Player: Papel')
+
+    }else {
+        console.log('Player: Tijera')
+    }
+}
+
+playerPlay();
+
+
+function game (){
+    if ( userOption === 'piedra' && randomNumber < 3){
+        console.log ('empate')
+    }
+}
+
+game();
+
+// function handleClickUpdate(event){
+//     event.preventDefault();
+//     playerPlay();
+    
+// }
+
+
