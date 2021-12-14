@@ -51,7 +51,7 @@ function playerPlay(){
     }
 }
 
-// button.addEventListener ('click', playerPlay);
+
 
 
 
@@ -129,7 +129,6 @@ function game (){
 }
 
 
-// button.addEventListener ('click', game);
 
 
 
@@ -159,6 +158,8 @@ function buttonRestart (){
 
 
 button2.addEventListener('click', buttonRestart)
+
+
 
 //funcion recogedora
 
