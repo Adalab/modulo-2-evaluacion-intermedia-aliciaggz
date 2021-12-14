@@ -20,8 +20,8 @@ const randomNumber = getRandomNumber(10);
 
 //funcion que tiene la jugada del ordernador
 
-function pcPlay(){
-
+function pcPlay(randomNumber){
+    
     console.log(randomNumber);
 
     if(randomNumber <= 3){
@@ -33,7 +33,7 @@ function pcPlay(){
     }
 
 }
-pcPlay();
+
 
 
 
@@ -83,8 +83,10 @@ function counterPc (){
 function game (){
     
     const userOption = select.value;
+    const randomNumber = getRandomNumber(10);
 
-    
+    pcPlay(randomNumber);
+
     if ( userOption === 'piedra' && randomNumber <= 3){         response.innerHTML = 'Empate.';    
 
     } else if (userOption === 'papel' && randomNumber <= 3 ){
@@ -118,6 +120,7 @@ function game (){
         response.innerHTML = 'Empate.'; 
     }
 
+
 }
 
 
@@ -129,15 +132,18 @@ function game (){
 //funcion BONUS del boton
 
 function buttonBonus(){
-    for(let i = 0; i < 10; i++){
-        counterPlayer();
-        counterPc();
-}
-   button2.classList.remove('hidden');
+    
+     counterPlayer();
+    counterPc();
+ 
+    button2.classList.remove('hidden');
 }
 
 function buttonRestart (){
     button2.classList.add('hidden');
+    pc.innerHTML = ` Computadora: 0 `
+    player.innerHTML = ` Jugador: 0`;
+   
 }
 
 button2.addEventListener('click', buttonRestart)
@@ -150,7 +156,8 @@ function handleClickUpdate(event){
     playerPlay();
     game();
     buttonBonus();
-    
+    pcPlay();
+    getRandomNumber();
     
  }
 
