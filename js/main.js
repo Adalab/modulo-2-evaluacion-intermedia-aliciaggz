@@ -6,6 +6,7 @@ const player = document.querySelector('.js-player');
 const pc = document.querySelector('.js-pc');
 const response = document.querySelector('.js-response');
 const button2 = document.querySelector('.js-btn2');
+const totalCounter = document.querySelector('.js-counter');
 
 //funcion para obtener el numero aleatorio
 
@@ -55,6 +56,13 @@ let triesPc = 0;
 function counterPc() {
   triesPc += 1;
   pc.innerHTML = ` Computadora: ${triesPc} `;
+}
+
+let totalTries = 0;
+
+function totalCounterPlay() {
+  totalTries += 1;
+  totalCounter.innerHTML = `Numero de jugadas: ${totalTries}`;
 }
 
 function game() {
@@ -107,6 +115,7 @@ function buttonRestart() {
   button2.classList.add('hidden');
   pc.innerHTML = ` Computadora: ${(triesPc = 0)} `;
   player.innerHTML = ` Jugador: ${(tries = 0)}`;
+  totalCounter.innerHTML = `Numero de jugadas: ${(totalTries = 0)}`;
   response.innerHTML = 'Vamos a jugar!';
 }
 
@@ -121,6 +130,7 @@ function handleClickUpdate(event) {
   playerPlay();
   game();
   resetCounters();
+  totalCounterPlay();
 }
 
 button.addEventListener('click', handleClickUpdate);
