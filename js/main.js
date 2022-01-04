@@ -82,25 +82,33 @@ function game() {
   } else if (userOption === 'papel' && randomNumber <= 3) {
     paintResponse('¡Has Ganado!');
     counterPlayer();
+    totalCounterPlay();
   } else if (userOption === 'tijera' && randomNumber <= 3) {
     paintResponse('¡Has Perdido!');
     counterPc();
+    totalCounterPlay();
   } else if (userOption === 'piedra' && randomNumber <= 6) {
     paintResponse('¡Has Perdido!');
     counterPc();
+    totalCounterPlay();
   } else if (userOption === 'papel' && randomNumber <= 6) {
     paintResponse('Empate.');
+    totalCounterPlay();
   } else if (userOption === 'tijera' && randomNumber <= 6) {
     paintResponse('¡Has Ganado!');
     counterPlayer();
+    totalCounterPlay();
   } else if (userOption === 'piedra' && randomNumber <= 10) {
     paintResponse('¡Has Ganado!');
     counterPlayer();
+    totalCounterPlay();
   } else if (userOption === 'papel' && randomNumber <= 10) {
     paintResponse('¡Has Perdido!');
     counterPc();
+    totalCounterPlay();
   } else if (userOption === 'tijera' && randomNumber <= 10) {
     paintResponse('Empate.');
+    totalCounterPlay();
   } else {
     paintResponse('Selecciona una jugada.');
   }
@@ -111,8 +119,13 @@ function game() {
 function resetCounters() {
   if (totalTries >= 10) {
     button2.classList.remove('hidden');
-  } else if (totalTries >= 10) {
-    button2.classList.remove('hidden');
+    if (triesPc > tries) {
+      paintResponse('¡Has Perdido!');
+    } else if (triesPc < tries) {
+      paintResponse('¡Has Ganado!');
+    } else {
+      paintResponse('Empate.');
+    }
   }
 }
 
@@ -135,7 +148,6 @@ function handleClickUpdate(event) {
   playerPlay();
   game();
   resetCounters();
-  totalCounterPlay();
 }
 
 button.addEventListener('click', handleClickUpdate);
