@@ -14,11 +14,10 @@ function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
-const randomNumber = getRandomNumber(10);
-
 //funcion que tiene la jugada del ordernador
 
-function pcPlay(randomNumber) {
+function pcPlay() {
+  const randomNumber = getRandomNumber(10);
   if (randomNumber <= 3) {
     console.log('Ordenador: Piedra');
   } else if (randomNumber <= 6) {
@@ -65,6 +64,10 @@ function totalCounterPlay() {
   totalCounter.innerHTML = `Numero de jugadas: ${totalTries}`;
 }
 
+function paintResponse(message) {
+  response.innerHTML = message;
+}
+
 function game() {
   const randomNumber = getRandomNumber(10);
 
@@ -73,40 +76,42 @@ function game() {
   pcPlay(randomNumber);
 
   const userOption = select.value;
-
+  //pcOption === 'piedra'
   if (userOption === 'piedra' && randomNumber <= 3) {
-    response.innerHTML = 'Empate.';
+    paintResponse('Empate.');
   } else if (userOption === 'papel' && randomNumber <= 3) {
-    response.innerHTML = '¡Has Ganado!';
+    paintResponse('¡Has Ganado!');
     counterPlayer();
   } else if (userOption === 'tijera' && randomNumber <= 3) {
-    response.innerHTML = '¡Has Perdido!';
+    paintResponse('¡Has Perdido!');
     counterPc();
   } else if (userOption === 'piedra' && randomNumber <= 6) {
-    response.innerHTML = '¡Has Perdido!';
+    paintResponse('¡Has Perdido!');
     counterPc();
   } else if (userOption === 'papel' && randomNumber <= 6) {
-    response.innerHTML = 'Empate.';
+    paintResponse('Empate.');
   } else if (userOption === 'tijera' && randomNumber <= 6) {
-    response.innerHTML = '¡Has Ganado!';
+    paintResponse('¡Has Ganado!');
     counterPlayer();
   } else if (userOption === 'piedra' && randomNumber <= 10) {
-    response.innerHTML = '¡Has Ganado!';
+    paintResponse('¡Has Ganado!');
     counterPlayer();
   } else if (userOption === 'papel' && randomNumber <= 10) {
-    response.innerHTML = '¡Has Perdido!';
+    paintResponse('¡Has Perdido!');
     counterPc();
   } else if (userOption === 'tijera' && randomNumber <= 10) {
-    response.innerHTML = 'Empate.';
+    paintResponse('Empate.');
+  } else {
+    paintResponse('Selecciona una jugada.');
   }
 }
 
 //funcion BONUS del boton
 
 function resetCounters() {
-  if (triesPc >= 3) {
+  if (totalTries >= 10) {
     button2.classList.remove('hidden');
-  } else if (tries >= 3) {
+  } else if (totalTries >= 10) {
     button2.classList.remove('hidden');
   }
 }
